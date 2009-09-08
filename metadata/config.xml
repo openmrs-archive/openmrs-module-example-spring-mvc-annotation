@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module PUBLIC "-//OpenMRS//DTD OpenMRS Config 1.0//EN" "http://resources.openmrs.org/doctype/config-1.0.dtd">
+<module configVersion="1.0">
+	
+	<!-- Patient Visit Properties -->
+	<id>patientvisit</id>
+	<name>Patient Visit</name>
+	<version>0.1</version>
+	<package>org.openmrs.module.@MODULE_ID@</package>
+	<author>openmrs,jmiranda,</author>
+	<description>
+			
+	</description>
+	<activator>@MODULE_PACKAGE@.PatientVisitModuleActivator</activator>
+	<!-- /Patient Visit Properties -->
+	
+</module>
