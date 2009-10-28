@@ -8,7 +8,6 @@ import org.openmrs.Concept;
 import org.openmrs.Location;
 import org.openmrs.Obs;
 import org.openmrs.Patient;
-import org.openmrs.Person;
 import org.openmrs.api.context.Context;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
@@ -25,24 +24,20 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/module/patientvisit/patientVisit")
 public class PatientVisitFormController {
 
+	/* Logger */
 	private static Log log = LogFactory.getLog(PatientVisitFormController.class);
-	
-	
-	
-	
+		
     @InitBinder
     public void initBinder(WebDataBinder binder) { 
     	binder.registerCustomEditor(Date.class, new CustomDateEditor(Context.getDateFormat(), false)); 
     }    
 	
-	
+
 	@RequestMapping(method=RequestMethod.GET)
 	public void populateForm(ModelMap map) {
 		
-		log.error("I got here");
-		
 		//map.addAttribute("patient", patient);
-		ModelAndView modelView = new ModelAndView();
+		//ModelAndView modelView = new ModelAndView();
 		
 		//modelView.setViewName("/module/patientvisit/patientVisit");
 		//return modelView;
@@ -60,14 +55,14 @@ public class PatientVisitFormController {
 	public ModelAndView processForm(
 			@ModelAttribute("patient") Patient patient,
 			@RequestParam("visitDate") Date visitDate) {
-		
-		Obs obs = new Obs(patient, new Concept(5497), new Date(), new Location(1));
-		obs.setPerson(patient);
-		obs.setValueDatetime(visitDate);
-		
-		obs = Context.getObsService().saveObs(obs, "because");
 		ModelAndView model = new ModelAndView();
-		model.addObject("obs", obs);
+		
+		//Obs obs = new Obs(patient, new Concept(5096), new Date(), new Location(1));
+		//obs.setPerson(patient);
+		//obs.setValueDatetime(visitDate);		
+		//obs = Context.getObsService().saveObs(obs, "because");
+		//model.addObject("obs", obs);
+		
 		return model;
 	}
 

@@ -2,16 +2,28 @@
 <!DOCTYPE module PUBLIC "-//OpenMRS//DTD OpenMRS Config 1.0//EN" "http://resources.openmrs.org/doctype/config-1.0.dtd">
 <module configVersion="1.0">
 	
-	<!-- Patient Visit Properties -->
 	<id>patientvisit</id>
 	<name>Patient Visit</name>
 	<version>0.1</version>
 	<package>org.openmrs.module.@MODULE_ID@</package>
-	<author>openmrs,jmiranda,</author>
+	<author>openmrs</author>
 	<description>
 			
 	</description>
 	<activator>@MODULE_PACKAGE@.PatientVisitModuleActivator</activator>
-	<!-- /Patient Visit Properties -->
+
+	<extension>
+		<point>org.openmrs.admin.list</point>
+		<class>@MODULE_PACKAGE@.extension.html.AdminList</class>
+	</extension>
+	<messages>
+		<lang>en</lang>
+		<file>messages.properties</file>
+	</messages>
+	<messages>
+		<lang>es</lang>
+		<file>messages_es.properties</file>
+	</messages>
+
 	
 </module>

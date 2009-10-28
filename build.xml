@@ -21,8 +21,6 @@
 			<xmlcatalog refid="common-dtds"/>
 		</xmlproperty>
 		
-		<xmlproperty file="metadata/config.xml" />
-
 		<filterset id="variables.to.replace">
 			<filter token="MODULE_ID" value="${module.id}" />
 			<filter token="MODULE_NAME" value="${module.name}" />
@@ -35,6 +33,9 @@
 				<include name="**/*.jar"/>
 			</fileset>
 			<fileset dir="lib-common">
+				<include name="**/*.jar"/>
+			</fileset>
+			<fileset dir="../openmrs-trunk/lib">
 				<include name="**/*.jar"/>
 			</fileset>
 		</path>
