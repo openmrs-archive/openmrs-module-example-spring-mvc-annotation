@@ -7,7 +7,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openmrs.Obs;
 import org.openmrs.Patient;
-import org.openmrs.api.context.Context;
 import org.openmrs.test.BaseModuleContextSensitiveTest;
 import org.openmrs.test.TestUtil;
 import org.openmrs.test.Verifies;
@@ -15,12 +14,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 public class PatientVisitFormControllerTest extends BaseModuleContextSensitiveTest {
 	
-
-
-	
 	/**
 	 * @see {@link PatientVisitFormController#formBackingObject()}
-	 * 
 	 */
 	@Test
 	@Verifies(value = "should set gender to male", method = "formBackingObject()")
@@ -52,7 +47,7 @@ public class PatientVisitFormControllerTest extends BaseModuleContextSensitiveTe
 		Patient patient = pvfc.formBackingObject(2);
 		Assert.assertEquals("patient should be 2", 2, patient.getPatientId().intValue());
 		
-		ModelAndView model = pvfc.processForm(patient, new Date());
+		ModelAndView model = pvfc.processForm(patient, new Date(), null);
 
 		
 		//Patient patient2 = Context.getPatientService().getPatient(15875);

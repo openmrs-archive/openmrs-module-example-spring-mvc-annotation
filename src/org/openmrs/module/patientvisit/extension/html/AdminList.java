@@ -50,6 +50,7 @@ public class AdminList extends AdministrationSectionExt {
 		
 		map.put("module/patientvisit/index.htm", "patientvisit.home");
 		map.put("module/patientvisit/patientVisit.form", "patientvisit.form");
+		map.put("module/patientvisit/patientVisitList.list", "patientvisit.list");
 		
 		return map;
 	}

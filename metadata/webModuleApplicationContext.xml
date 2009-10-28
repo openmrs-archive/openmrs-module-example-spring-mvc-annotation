@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-	<!-- Beans to add to the current Web Application context definition -->
-
+<!-- Beans to add to the current Web Application context definition -->
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:util="http://www.springframework.org/schema/util"
@@ -12,9 +10,7 @@
            http://www.springframework.org/schema/util
            http://www.springframework.org/schema/util/spring-util-2.0.xsd">
 
-	<!-- 
 	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
-	 -->
-	<context:component-scan base-package="org.openmrs.patientvisit.web.controller" />
+	<context:component-scan base-package="@MODULE_PACKAGE@" />
 
 </beans>

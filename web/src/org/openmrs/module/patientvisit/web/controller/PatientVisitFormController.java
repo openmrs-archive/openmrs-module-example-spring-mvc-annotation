@@ -1,6 +1,10 @@
 package org.openmrs.module.patientvisit.web.controller;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -34,15 +38,34 @@ public class PatientVisitFormController {
 	
 
 	@RequestMapping(method=RequestMethod.GET)
-	public void populateForm(ModelMap map) {
+	public void populateForm(ModelMap map) { 
+		List<Date> dates = new ArrayList<Date>();
+		List<Location> locations = Context.getLocationService().getAllLocations();
+		map.put("dates", dates);
+		map.put("locations", locations);
+	}
+
+	
+	/**
+	 * @should set gender to male
+	 * @should return non null patient
+	 * @should return patient with patient id 
+	 * @param map
+	 */
+	@ModelAttribute("patient")
+	public Patient formBackingObject(
+			@RequestParam(value = "patientId", required = false) Integer patientId) { 
+		Patient patient = Context.getPatientService().getPatient(patientId);
+		log.error("Patient: " + patient);
+
+		/*
+		if (patient == null) { 
+			patient = new Patient();
+			patient.setGender("male");
+		}*/
 		
-		//map.addAttribute("patient", patient);
-		//ModelAndView modelView = new ModelAndView();
 		
-		//modelView.setViewName("/module/patientvisit/patientVisit");
-		//return modelView;
-		
-		//return "/module/patientvisit/patientVisit";
+		return patient;
 	}
 
 	
@@ -54,34 +77,23 @@ public class PatientVisitFormController {
 	@RequestMapping(method=RequestMethod.POST)
 	public ModelAndView processForm(
 			@ModelAttribute("patient") Patient patient,
-			@RequestParam("visitDate") Date visitDate) {
+			@RequestParam("visitDate") Date visitDate, 
+			HttpServletRequest request) {
 		ModelAndView model = new ModelAndView();
 		
-		//Obs obs = new Obs(patient, new Concept(5096), new Date(), new Location(1));
-		//obs.setPerson(patient);
-		//obs.setValueDatetime(visitDate);		
-		//obs = Context.getObsService().saveObs(obs, "because");
-		//model.addObject("obs", obs);
+		//Integer patientId = Integer.parseInt(request.getParameter("patientId"));		
+		//Patient patient = 
+		
+		
+		Obs obs = new Obs(patient, new Concept(5096), new Date(), new Location(1));
+		obs.setPerson(patient);
+		obs.setValueDatetime(visitDate);		
+		obs = Context.getObsService().saveObs(obs, "because");
+		model.addObject("obs", obs);
 		
 		return model;
 	}
 
-	/**
-	 * @should set gender to male
-	 * @should return non null patient
-	 * @should return patient with patient id 
-	 * @param map
-	 */
-	@ModelAttribute("patient")
-	public Patient formBackingObject(
-			@RequestParam("patientId") Integer patientId) { 
-		Patient patient = Context.getPatientService().getPatient(patientId);
-		log.error("Patient: " + patient);
-		if (patient == null) { 
-			patient = new Patient();
-			patient.setGender("male");
-		}
-		return patient;
-	}
+	
 	
 }
