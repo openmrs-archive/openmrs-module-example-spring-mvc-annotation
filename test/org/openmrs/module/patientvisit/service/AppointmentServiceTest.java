@@ -15,7 +15,7 @@ import org.openmrs.test.BaseModuleContextSensitiveTest;
 public class AppointmentServiceTest extends BaseModuleContextSensitiveTest {
 
 	@Before
-	public void runBeforeTests() throws Exception { 		
+	public void before() throws Exception { 		
 		authenticate();
 		initializeInMemoryDatabase();		
 	}
@@ -80,8 +80,8 @@ public class AppointmentServiceTest extends BaseModuleContextSensitiveTest {
 		Assert.assertNotNull("service should have given appt an id", appt2.getId());
 		
 		List<Appointment> appts = Context.getService(AppointmentService.class).getAppointments(new Date());
-		Assert.assertNotNull("appts not null", appts);
-		Assert.assertTrue("appts not empty", !appts.isEmpty());
+		Assert.assertNotNull("appts is null", appts);
+		Assert.assertTrue("appts is empty", !appts.isEmpty());
 		
 		
 	}

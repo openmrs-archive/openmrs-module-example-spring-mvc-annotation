@@ -32,7 +32,7 @@ public class AppointmentServiceImpl extends BaseOpenmrsService implements Appoin
 			String endDate = dateFormat.format(appt.getEndDatetime());
 			String inputDate = dateFormat.format(date);
 			if (inputDate.equals(startDate) || inputDate.equals(endDate)) { 
-				//appts.add(appt);
+				appts.add(appt);
 			}
 		}
 		return appts;
