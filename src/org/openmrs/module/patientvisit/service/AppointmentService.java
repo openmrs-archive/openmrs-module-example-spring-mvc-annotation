@@ -11,6 +11,7 @@ public interface AppointmentService extends OpenmrsService {
 	
 	/**
 	 * @should return appointment with the given id
+	 * 
 	 * @param id
 	 * @return
 	 */
@@ -18,12 +19,14 @@ public interface AppointmentService extends OpenmrsService {
 	
 	/**
 	 * @should save the appointment to the database
+	 * 
 	 * @param appt
 	 */
 	public Appointment scheduleAppointment(Appointment appt);
 
 	/**
 	 * @should remove the appointment from the database
+	 * 
 	 * @param appt
 	 */
 	public void removeAppointment(Appointment appt);
@@ -31,6 +34,8 @@ public interface AppointmentService extends OpenmrsService {
 	
 	/**
 	 * @should get all appointment for the given date
+	 * @should return empty list if there are no citas para fecha
+	 * 
 	 * @param date
 	 * @return
 	 */
