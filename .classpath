@@ -3,6 +3,7 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="web/src"/>
 	<classpathentry kind="src" path="test"/>
+	<classpathentry kind="lib" path="dist"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="/1.5.x/lib/antlr/antlr_2.7.6.jar"/>
 	<classpathentry kind="lib" path="/1.5.x/lib/cglib/cglib-2.1_3.jar"/>

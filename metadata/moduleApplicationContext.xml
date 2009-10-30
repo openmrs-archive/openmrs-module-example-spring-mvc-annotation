@@ -10,7 +10,6 @@
            http://www.springframework.org/schema/util
            http://www.springframework.org/schema/util/spring-util-2.0.xsd">
 	
-	
 	<bean parent="serviceContext">
 		<property name="moduleService">
 			<list>
@@ -18,14 +17,12 @@
 				<bean class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
 					<property name="transactionManager"><ref bean="transactionManager"/></property>
 					<property name="target">
-						<bean class="@MODULE_PACKAGE@.service.AppointmentServiceImpl">
-						<!--  
+						<bean class="@MODULE_PACKAGE@.service.AppointmentServiceImpl">					
 							<property name="appointmentDAO">
-								<bean class="@MODULE_PACKAGE@.db.hibernate.HibernateAppointmentDAO">
+								<bean class="org.openmrs.module.patientvisit.dao.HibernateAppointmentDAO">
 									<property name="sessionFactory"><ref bean="sessionFactory"/></property>	
 								</bean>
 							</property>	
-						-->
 						</bean>
 					</property>
 					<!--  Interceptors are used to handle  -->

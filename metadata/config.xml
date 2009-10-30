@@ -24,6 +24,8 @@
 		<lang>es</lang>
 		<file>messages_es.properties</file>
 	</messages>
-
+	<mappingFiles>
+		Appointment.hbm.xml
+	</mappingFiles>
 	
 </module>

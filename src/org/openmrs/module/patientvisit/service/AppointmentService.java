@@ -4,11 +4,13 @@ import java.util.Date;
 import java.util.List;
 
 import org.openmrs.api.OpenmrsService;
+import org.openmrs.module.patientvisit.dao.AppointmentDAO;
 import org.openmrs.module.patientvisit.model.Appointment;
+
 
 public interface AppointmentService extends OpenmrsService {
 	
-	
+		
 	/**
 	 * @should return appointment with the given id
 	 * 

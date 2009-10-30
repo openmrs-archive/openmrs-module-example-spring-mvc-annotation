@@ -3,6 +3,7 @@ package org.openmrs.module.patientvisit.model;
 import java.io.Serializable;
 import java.util.Date;
 
+import org.hibernate.Query;
 import org.openmrs.BaseOpenmrsObject;
 import org.openmrs.Location;
 import org.openmrs.Patient;
@@ -14,7 +15,7 @@ public class Appointment extends BaseOpenmrsObject implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1063445703365994315L;
-
+	
 	private Integer id;
 	private User provider;
 	private Date startDatetime;

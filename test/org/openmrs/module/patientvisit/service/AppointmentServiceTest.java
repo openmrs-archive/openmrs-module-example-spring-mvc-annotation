@@ -31,18 +31,22 @@ public class AppointmentServiceTest extends BaseModuleContextSensitiveTest {
 	 * 
 	 */
 	@Test
-	public void shouldScheduleAppointment() { 
-		AppointmentService service = new AppointmentServiceImpl();
-		
+	public void shouldScheduleAppointment() { 		
 		Context.getService(AppointmentService.class).getAppointment(1);
 		
 		Appointment appt = new Appointment();
-		appt = service.scheduleAppointment(appt);		
+		appt.setStartDatetime(new Date());
+		appt.setEndDatetime(new Date());
+		appt.setLocation(Context.getLocationService().getDefaultLocation());
+		appt.setPatient(Context.getPatientService().getPatient(2));
+		appt.setProvider(Context.getUserService().getUserByUsername("admin"));
+		
+		appt = Context.getService(AppointmentService.class).scheduleAppointment(appt);		
 		
 		Assert.assertNotNull("the appt should not be null", appt);
 		Assert.assertNotNull("the appt id should not be null", appt.getId());
 		
-		Appointment sameAppt = service.getAppointment(appt.getId());
+		Appointment sameAppt = Context.getService(AppointmentService.class).getAppointment(appt.getId());
 		Assert.assertEquals("these appts should be the same", appt, sameAppt);		
 	}
 	
