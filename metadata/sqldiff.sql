@@ -12,7 +12,7 @@
 			Create new table for our patient appointment scheduler.
 		</description>
 		<sql>
-			DROP TABLE appointment;
+			DROP TABLE IF EXISTS appointment;
 			CREATE TABLE appointment (
 				id int(11) NOT NULL,
 				start_datetime datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -23,5 +23,17 @@
 			) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 		</sql>
 	</diff>
-	
+
+	<diff>
+		<version>0.2</version>
+		<author>OpenMRS</author>
+		<date>Oct 31th 2009</date>
+		<description>
+			Add a uuid column 
+		</description>
+		<sql>
+			ALTER TABLE appointment ADD COLUMN uuid CHAR(38) NOT NULL;
+		</sql>
+	</diff>
+		
 </sqldiff>
