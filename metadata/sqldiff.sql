@@ -36,4 +36,21 @@
 		</sql>
 	</diff>
 		
+	<diff>
+		<version>0.3</version>
+		<author>OpenMRS</author>
+		<date>Oct 31th 2009</date>
+		<description>
+			Add a uuid column 
+		</description>
+		<sql>		
+			ALTER TABLE appointment MODIFY COLUMN id INTEGER  NOT NULL AUTO_INCREMENT,
+			ADD PRIMARY KEY (id); 
+		</sql>
+	</diff>
+	
+	
+	
+	
+	
 </sqldiff>
