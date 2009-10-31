@@ -3,6 +3,7 @@ package org.openmrs.module.patientvisit.service;
 import java.util.Date;
 import java.util.List;
 
+import org.openmrs.Patient;
 import org.openmrs.api.OpenmrsService;
 import org.openmrs.module.patientvisit.dao.AppointmentDAO;
 import org.openmrs.module.patientvisit.model.Appointment;
@@ -43,4 +44,7 @@ public interface AppointmentService extends OpenmrsService {
 	 */
 	public List<Appointment> getAppointments(Date date);
 
+	
+	public List<Patient> getPatientsWithAppointmentsOnDate(Date date);
+	
 }
