@@ -11,10 +11,13 @@
 			
 	</description>
 	<activator>@MODULE_PACKAGE@.PatientVisitModuleActivator</activator>
-
 	<extension>
 		<point>org.openmrs.admin.list</point>
 		<class>@MODULE_PACKAGE@.extension.html.AdminList</class>
+	</extension>
+	<extension>
+		<point>org.openmrs.patientDashboardTab</point>
+		<class>@MODULE_PACKAGE@.extension.html.AppointmentPatientDashboardTabExt</class>
 	</extension>
 	<messages>
 		<lang>en</lang>
